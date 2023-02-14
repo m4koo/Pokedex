@@ -1,0 +1,16 @@
+/* abeezee-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Pokemon';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/pokemon/Pokemon\ Solid.ttf');
+}
+
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Pokemon-Hollow';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/pokemon/Pokemon\ Hollow.ttf');
+}
