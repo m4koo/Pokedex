@@ -43,7 +43,7 @@ function generatePokemonCard(id, name, sprite, types) {
                 <span>#${str.padStart(3, '0')}</span>
             </div>
             <div class='poke-type-sprite'>
-                <div id='poke-type-${id}'>
+                <div id='poke-type-${id}' class='poke-type'>
                     ${generatePokeTypes(types, id)}
                 </div>
                 <img src='${sprite}'>
