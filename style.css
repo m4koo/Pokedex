@@ -37,7 +37,8 @@ nav > img{
     justify-content: center;
     flex-wrap: wrap;
     flex: 1;
-    gap: 10px;
+    gap: 30px;
+    padding: 15px 0;
     /* flex-basis: 10%; */
 }
 
@@ -79,4 +80,17 @@ nav > img{
     flex-direction: column;
     gap: 10px;
     font-size: 10px;
+}
+
+.poke-type{
+    text-transform: capitalize;
+    width: 40%;
+}
+
+.poke-type > p{
+    width: 100%;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
 }
