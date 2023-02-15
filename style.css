@@ -4,6 +4,12 @@
 
 body{
     margin: 0;
+    width: 100vw;
+    max-width: 100vw;
+}
+
+p{
+    margin: 0;
 }
 
 nav{
@@ -23,7 +29,50 @@ nav > img{
     align-items: center;
 }
 
-#main > img{
+#main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex: 1;
+    gap: 10px;
+    /* flex-basis: 10%; */
+}
+
+.poke-type-sprite > img{
     height: 100px;
     object-fit: contain;
+}
+
+.poke-card{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    /* height: 150px; */
+    max-height: fit-content;
+    background-color: green;
+}
+
+.poke-name-id{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.poke-name-id > p{
+    text-transform: capitalize;
+}
+
+.poke-type-sprite{
+    padding: 15px;
+    padding-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.poke-type{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
