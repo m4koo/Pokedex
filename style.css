@@ -10,6 +10,8 @@ body{
     font-size: 16px;
     color: white;
     -webkit-text-stroke: .5px black;
+    
+    background-color: black;
 }
 
 p{
@@ -53,11 +55,11 @@ nav > img{
 .poke-card{
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 270px;
     max-height: fit-content;
-    background-position-x: -66px;
-    background-position-y: -158px;
-    background-size: 500px;
+    background-position-x: -70px;
+    background-position-y: -180px;
+    background-size: 550px;
     background-repeat: no-repeat;
     border-radius: 30px;
 }
@@ -72,6 +74,7 @@ nav > img{
 
 .poke-name-id > p{
     text-transform: capitalize;
+    text-shadow: 0 0 5px hsla(0, 0%, 0%, 10%);
 }
 
 .poke-type-sprite{
