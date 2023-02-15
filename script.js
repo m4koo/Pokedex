@@ -50,14 +50,15 @@ function generatePokemonCard(id, name, sprite, types) {
             </div>
         </div>
     `;
-    document.getElementById(`id-${id + 1}`).style.backgroundColor = getPokemonColor(types[0]['type']['name'])
+    document.getElementById(`id-${id + 1}`).style.backgroundImage = `url('img/svg/types/${types[0]['type']['name']}.svg')`;
 }
 
 function generatePokeTypes(types, i){
     let typesHtml = '';
     console.log(types)
     for (let j = 0; j < types.length; j++) {
-        typesHtml += `<p>${types[j]['type']['name']}</p>`
+        let type = types[j]['type']['name'];
+        typesHtml += `<p style='background-color: ${getPokemonColor(type)}'>${type}</p>`
     }
     return typesHtml
 }
