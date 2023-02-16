@@ -8,7 +8,7 @@ body{
     max-width: 100vw;
     font-family: 'Press Start 2P', sans-serif;
     font-size: 16px;
-    color: white;
+    color: rgb(255, 255, 255);
     
     background-color: black;
 }
@@ -68,13 +68,13 @@ nav > img{
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    
+    -webkit-text-stroke: .5px black;
 }
 
 .poke-name-id > p{
     text-transform: capitalize;
     text-shadow: 0 0 5px hsla(0, 0%, 0%, 10%);
-    -webkit-text-stroke: .5px black;
+    
 }
 
 .poke-type-sprite{
@@ -100,7 +100,7 @@ nav > img{
 .poke-type > p{
     width: 100%;
     border: 1px solid black;
-    padding: 5px;
+    padding: 5px 0;
     text-align: center;
     border-radius: 10px;
 }
