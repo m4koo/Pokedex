@@ -40,21 +40,20 @@ nav > img{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    flex: 1;
+    /* flex: 1; */
     gap: 30px;
     padding: 15px 0;
-    /* flex-basis: 10%; */
 }
 
 .poke-type-sprite > img{
-    height: 100px;
+    height: 150px;
     object-fit: contain;
 }
 
 .poke-card{
     display: flex;
     flex-direction: column;
-    width: 270px;
+    width: 300px;
     max-height: fit-content;
     background-position-x: -70px;
     background-position-y: -180px;
