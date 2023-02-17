@@ -34,26 +34,37 @@ async function showPokeCard(list) {
 }
 
 function generatePokemonCard(id, name, sprite, types) {
-    let main = document.getElementById('main');
-    let str = `${id + 1}`;
-    main.innerHTML += `
-        <div id='id-${id + 1}' class='poke-card' onclick='showPokeInfo(${id})'>
-            <div class='poke-name-id'>
-                <p>${name}</p>
-                <span>#${str.padStart(3, '0')}</span>
-            </div>
-            <div class='poke-type-sprite'>
-                <div class='poke-type'>
-                    ${generatePokeTypes(types, id)}
-                </div>
-                <img src='${sprite}'>
-            </div> 
-        </div>
-    `;
-    document.getElementById(`id-${id + 1}`).style.backgroundImage = `url('img/svg/types/${types[0]['type']['name']}.svg')`;
-    let shadowColor = getPokemonColor(types[0]['type']['name']);
-    console.log(shadowColor);
-    document.getElementById(`id-${id + 1}`).style.setProperty('--poke-card-shadow', shadowColor);
+  let main = document.getElementById('main');
+  let str = `${id + 1}`;
+  main.innerHTML += `
+      <div id='id-${id + 1}' class='poke-card' onclick='showPokeInfo(${id})'>
+          <div class='poke-name-id'>
+              <p>${name}</p>
+              <span>#${str.padStart(3, '0')}</span>
+          </div>
+          <div class='poke-type-sprite'>
+              <div class='poke-type'>
+                  ${generatePokeTypes(types, id)}
+              </div>
+              <img src='${sprite}'>
+          </div> 
+      </div>
+  `;
+  pokeCardStyling(types, id);
+}
+
+function pokeCardStyling(types, id) {
+  setPokeCardBackground(types, id);
+  setBoxShadow(types, id);
+}
+
+function setPokeCardBackground(types, id){
+  document.getElementById(`id-${id + 1}`).style.backgroundImage = `url('img/svg/types/${types[0]['type']['name']}.svg')`;
+}
+
+function setBoxShadow(types, id) {
+  let shadowColor = getPokemonColor(types[0]['type']['name']);
+  document.getElementById(`id-${id + 1}`).style.setProperty('--poke-card-shadow', shadowColor);
 }
 
 function generatePokeTypes(types, i){

@@ -1,7 +1,3 @@
-/* :root{
-    
-} */
-
 body{
     margin: 0;
     width: 100vw;
@@ -40,7 +36,6 @@ nav > img{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    /* flex: 1; */
     gap: 30px;
     padding: 30px 0;
 }
@@ -48,12 +43,18 @@ nav > img{
 .poke-type-sprite > img{
     height: 150px;
     object-fit: contain;
+    right: 10px;
+    position: absolute;
+    bottom: 10px;
+    transition: transform 225ms ease-in-out;
 }
 
 .poke-card{
     display: flex;
     flex-direction: column;
     width: 300px;
+    height: 211px;
+    max-height: 211px;
     max-height: fit-content;
     background-position-x: -70px;
     background-position-y: -180px;
@@ -65,6 +66,11 @@ nav > img{
 
 .poke-card:hover{
     box-shadow: 0 0 20px 1px var(--poke-card-shadow, #888);
+}
+
+.poke-card:hover > .poke-type-sprite > img{
+    /* height: 170px; */
+    transform: scale(1.1);
 }
 
 .poke-name-id{
@@ -87,6 +93,8 @@ nav > img{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
+    position: relative;
 }
 
 .poke-type{
