@@ -20,12 +20,23 @@ function generatePokemonCard(id, name, sprite, types) {
 
 function generatePokeTypes(types, i){
     let typesHtml = '';
-    // console.log(types)
     for (let j = 0; j < types.length; j++) {
         let type = types[j]['type']['name'];
         typesHtml += `<p style='background-color: ${getPokemonColor(type)}'>${type}</p>`
     }
     return typesHtml
+}
+
+function generatePokeInfoBox() {
+    let background = document.getElementById('poke-info-background');
+    let card = document.getElementById('poke-info-card');
+    background.classList.remove('hidden');
+    card.classList.remove('hidden');
+
+    background.onclick = () => {
+        background.classList.add('hidden');
+        card.classList.add('hidden');
+    }
 }
 
 function getPokemonColor(type) {
