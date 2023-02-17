@@ -37,25 +37,28 @@ function generatePokemonCard(id, name, sprite, types) {
     let main = document.getElementById('main');
     let str = `${id + 1}`;
     main.innerHTML += `
-        <div id='id-${id + 1}' class='poke-card'>
+        <div id='id-${id + 1}' class='poke-card' onclick='showPokeInfo(${id})'>
             <div class='poke-name-id'>
                 <p>${name}</p>
                 <span>#${str.padStart(3, '0')}</span>
             </div>
             <div class='poke-type-sprite'>
-                <div id='poke-type-${id}' class='poke-type'>
+                <div class='poke-type'>
                     ${generatePokeTypes(types, id)}
                 </div>
                 <img src='${sprite}'>
-            </div>
+            </div> 
         </div>
     `;
     document.getElementById(`id-${id + 1}`).style.backgroundImage = `url('img/svg/types/${types[0]['type']['name']}.svg')`;
+    let shadowColor = getPokemonColor(types[0]['type']['name']);
+    console.log(shadowColor);
+    document.getElementById(`id-${id + 1}`).style.setProperty('--poke-card-shadow', shadowColor);
 }
 
 function generatePokeTypes(types, i){
     let typesHtml = '';
-    console.log(types)
+    // console.log(types)
     for (let j = 0; j < types.length; j++) {
         let type = types[j]['type']['name'];
         typesHtml += `<p style='background-color: ${getPokemonColor(type)}'>${type}</p>`
