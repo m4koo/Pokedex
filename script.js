@@ -33,25 +33,7 @@ async function showPokeCard(list) {
     }
 }
 
-function generatePokemonCard(id, name, sprite, types) {
-  let main = document.getElementById('main');
-  let str = `${id + 1}`;
-  main.innerHTML += `
-      <div id='id-${id + 1}' class='poke-card' onclick='showPokeInfo(${id})'>
-          <div class='poke-name-id'>
-              <p>${name}</p>
-              <span>#${str.padStart(3, '0')}</span>
-          </div>
-          <div class='poke-type-sprite'>
-              <div class='poke-type'>
-                  ${generatePokeTypes(types, id)}
-              </div>
-              <img src='${sprite}'>
-          </div> 
-      </div>
-  `;
-  pokeCardStyling(types, id);
-}
+
 
 function pokeCardStyling(types, id) {
   setPokeCardBackground(types, id);
@@ -67,15 +49,6 @@ function setBoxShadow(types, id) {
   document.getElementById(`id-${id + 1}`).style.setProperty('--poke-card-shadow', shadowColor);
 }
 
-function generatePokeTypes(types, i){
-    let typesHtml = '';
-    // console.log(types)
-    for (let j = 0; j < types.length; j++) {
-        let type = types[j]['type']['name'];
-        typesHtml += `<p style='background-color: ${getPokemonColor(type)}'>${type}</p>`
-    }
-    return typesHtml
-}
 
 function getPokemonColor(type) {
     let color;
