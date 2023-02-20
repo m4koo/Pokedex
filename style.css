@@ -227,6 +227,7 @@ nav > img{
     }
 }
 
+
 .pokeball-button {
     position: absolute;
     top: 10px;
@@ -236,7 +237,7 @@ nav > img{
     border: none;
     border-radius: 50%;
     background-color: white;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 5px black;
   }
   
   .pokeball-top {
