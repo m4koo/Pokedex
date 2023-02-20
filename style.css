@@ -199,19 +199,6 @@ nav > img{
     flex-direction: row;
 }
 
-#close-card{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    /* border: none; */
-    background-color: transparent;
-    border-radius: 20px;
-    height: 35px;
-    width: 35px;
-    color: white;
-    cursor: pointer;
-}
-
 @media (max-width:450px) {
     #poke-info-card{
         width: 100%;
@@ -238,9 +225,15 @@ nav > img{
     border-radius: 50%;
     background-color: white;
     box-shadow: 0 0 5px black;
-  }
+    cursor: pointer;
+    transition: transform 225ms ease-in-out;
+}
+
+.pokeball-button:hover{
+    transform: scale(1.1);
+}
   
-  .pokeball-top {
+.pokeball-top {
     position: absolute;
     top: 0;
     left: 0;
@@ -249,9 +242,9 @@ nav > img{
     border-top-left-radius: 50% 100%;
     border-top-right-radius: 50% 100%;
     background-color: red;
-  }
+}
   
-  .pokeball-bottom {
+.pokeball-bottom {
     position: absolute;
     top: 50%;
     left: 0;
@@ -260,9 +253,9 @@ nav > img{
     border-bottom-left-radius: 50% 100%;
     border-bottom-right-radius: 50% 100%;
     background-color: white;
-  }
+}
   
-  .pokeball-x {
+.pokeball-x {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -271,9 +264,9 @@ nav > img{
     height: 3px;
     background-color: black;
     border-radius: 10px;
-  }
+}
   
-  .pokeball-center-inner {
+.pokeball-center-inner {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -288,4 +281,4 @@ nav > img{
     justify-content: center;
     align-items: center;
     font-size: 10px;
-  }
+}

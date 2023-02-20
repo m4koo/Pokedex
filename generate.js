@@ -127,7 +127,7 @@ function getPokemonColor(type) {
 function generatePokeButton() {
     let button = '';
     button += `
-        <button class="pokeball-button">
+        <button class="pokeball-button" onclick="closeCard()">
             <div class="pokeball-top"></div>
             <div class="pokeball-bottom"></div>
             <div class="pokeball-x"></div>
