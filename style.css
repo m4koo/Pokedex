@@ -199,6 +199,10 @@ nav > img{
     flex-direction: row;
 }
 
+#current-poke-types > p{
+    padding: 5px !important;
+}
+
 @media (max-width:450px) {
     #poke-info-card{
         width: 100%;
