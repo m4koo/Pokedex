@@ -150,8 +150,65 @@ nav > img{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 60vh;
-    aspect-ratio: 3/4;
+    height: 90vh;
+    width: 400px;
     background-color: white;
     z-index: 100;
+    border-radius: 30px;
+}
+
+#poke-info-top{
+    background-color: green;
+    position: relative;
+    height: 45%;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+#poke-info-bottom{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60%;
+    z-index: 101;
+    border-radius: 30px;
+    background-color: black;
+}
+
+.current-poke-type-sprite{
+    padding: 15px;
+    padding-top: 0;
+    z-index: 2;
+}
+
+.current-poke-type-sprite > img{
+    height: 150px;
+    object-fit: contain;
+    position: absolute;
+    z-index: 1000;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#current-poke-name-id{
+    padding-top: 50px;
+}
+
+#current-poke-types{
+    flex-direction: row;
+}
+
+#close-card{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* border: none; */
+    background-color: transparent;
+    border-radius: 20px;
+    height: 35px;
+    width: 35px;
+    color: white;
+    cursor: pointer;
 }

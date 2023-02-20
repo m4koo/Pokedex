@@ -7,7 +7,7 @@ async function fetchPokeUrl(urlPath){
 }
 
 async function getPokemons() {
-    let limit = `?limit=151` //limit 151 for gen 1
+    let limit = `?limit=21` //limit 151 for gen 1
     let pokemonList = await fetchPokeUrl(limit);
     return pokemonList;
 }
@@ -35,24 +35,37 @@ async function showPokeCard() {
   }
 }
 
-function pokeCardStyling(types, id) { //specific styling for the different types
-  setPokeCardBackground(types, id);
-  setBoxShadow(types, id);
+function pokeCardStyling(types, i) { //specific styling for the different types
+  setPokeCardBackground(types, i);
+  setBoxShadow(types, i);
 }
 
-function setPokeCardBackground(types, id){
-  document.getElementById(`id-${id + 1}`).style.backgroundImage = `url('img/svg/types/${types[0]['type']['name']}.svg')`;
+function setPokeCardBackground(types, i){
+  document.getElementById(`id-${i + 1}`).style.backgroundImage = `url('img/svg/types/${types[0]['type']['name']}.svg')`;
 }
 
-function setBoxShadow(types, id) {
+function setBoxShadow(types, i) {
   let shadowColor = getPokemonColor(types[0]['type']['name']);
-  document.getElementById(`id-${id + 1}`).style.setProperty('--poke-card-shadow', shadowColor);
+  document.getElementById(`id-${i + 1}`).style.setProperty('--poke-card-shadow', shadowColor);
 }
 
 
 //SECTION:  pokemon info box when clicking on pokemon card
-function showPokeInfo(id) {
-  generatePokeInfoBox();
+function showPokeInfo(i) {
+  togglePokeInfoBox();
+
+  generatePokeInfoCard(i)
+}
+
+function togglePokeInfoBox() {
+  document.getElementById('poke-info-background').classList.remove('hidden');
+  document.getElementById('poke-info-card').classList.remove('hidden');
+}
+
+function closeCard() {
+  document.getElementById('poke-info-background').classList.add('hidden');
+  document.getElementById('poke-info-card').classList.add('hidden');
+  document.getElementById('poke-info-top').innerHTML = '';
 }
 
 

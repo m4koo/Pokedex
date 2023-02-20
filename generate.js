@@ -1,21 +1,21 @@
-function generatePokemonCard(id, name, sprite, types) {
+function generatePokemonCard(i, name, sprite, types) {
     let main = document.getElementById('main');
-    let str = `${id + 1}`;
+    let id = `${i + 1}`;
     main.innerHTML += `
-        <div id='id-${id + 1}' class='poke-card' onclick='showPokeInfo(${id})'>
+        <div id='id-${id}' class='poke-card' onclick='showPokeInfo(${i})'>
             <div class='poke-name-id'>
                 <p>${name}</p>
-                <span>#${str.padStart(3, '0')}</span>
+                <span>#${id.padStart(3, '0')}</span>
             </div>
             <div class='poke-type-sprite'>
                 <div class='poke-type'>
-                    ${generatePokeTypes(types, id)}
+                    ${generatePokeTypes(types, i)}
                 </div>
                 <img src='${sprite}'>
             </div> 
         </div>
     `;
-    pokeCardStyling(types, id);
+    pokeCardStyling(types, i);
 }
 
 function generatePokeTypes(types, i){
@@ -27,16 +27,35 @@ function generatePokeTypes(types, i){
     return typesHtml
 }
 
-function generatePokeInfoBox() {
-    let background = document.getElementById('poke-info-background');
-    let card = document.getElementById('poke-info-card');
-    background.classList.remove('hidden');
-    card.classList.remove('hidden');
+function generatePokeInfoCard(i) {
+    let id = `${i + 1}`
+    let name = document.querySelector(`#id-${id} > div > p`).innerHTML;
+    let sprite = document.querySelector(`#id-${id} > .poke-type-sprite > img`).getAttribute('src');
+    let types = document.querySelector(`#id-${id} > .poke-type-sprite > div`).querySelectorAll('p');
+    
 
-    background.onclick = () => {
-        background.classList.add('hidden');
-        card.classList.add('hidden');
+    let cardTop = document.getElementById('poke-info-top');
+    cardTop.innerHTML=`
+        <button id='close-card' onclick='closeCard()'>X</button>
+        <div class='poke-name-id' id='current-poke-name-id'>
+            <p>${name}</p>
+            <span>#${id.padStart(3, '0')}</span>
+        </div>
+        <div class='current-poke-type-sprite' id='current-poke-info-type-sprite'>
+            <div class='poke-type' id='current-poke-types'></div>
+            <img src='${sprite}'>
+        </div>   
+    `
+
+    let type1 = types[0].cloneNode(true);
+    let currentTypes = document.getElementById('current-poke-types');
+    currentTypes.appendChild(type1);
+    if (types[1]) {
+        let type2 = types[1].cloneNode(true);
+        currentTypes.appendChild(type2);
+        console.log(type2)
     }
+    
 }
 
 function getPokemonColor(type) {
