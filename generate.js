@@ -36,17 +36,17 @@ function generatePokeInfoCard(i) {
 
     let cardTop = document.getElementById('poke-info-top');
     cardTop.innerHTML=`
-        <button id='close-card' onclick='closeCard()'>X</button>
         <div class='poke-name-id' id='current-poke-name-id'>
             <p>${name}</p>
             <span>#${id.padStart(3, '0')}</span>
+            ${generatePokeButton()}
         </div>
         <div class='current-poke-type-sprite' id='current-poke-info-type-sprite'>
             <div class='poke-type' id='current-poke-types'></div>
             <img src='${sprite}'>
         </div>   
     `
-
+    // <button id='close-card' onclick='closeCard()'>X</button>
     let type1 = types[0].cloneNode(true);
     let currentTypes = document.getElementById('current-poke-types');
     currentTypes.appendChild(type1);
@@ -55,7 +55,7 @@ function generatePokeInfoCard(i) {
         currentTypes.appendChild(type2);
         console.log(type2)
     }
-    
+    cardTop.style.backgroundColor = getPokemonColor(type1.innerHTML);
 }
 
 function getPokemonColor(type) {
@@ -122,4 +122,17 @@ function getPokemonColor(type) {
     }
   
     return color;
-  }
+}
+
+function generatePokeButton() {
+    let button = '';
+    button += `
+        <button class="pokeball-button">
+            <div class="pokeball-top"></div>
+            <div class="pokeball-bottom"></div>
+            <div class="pokeball-x"></div>
+            <div class="pokeball-center-inner">X</div>
+        </button>
+    `
+    return button;
+}

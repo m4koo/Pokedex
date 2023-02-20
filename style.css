@@ -155,10 +155,10 @@ nav > img{
     background-color: white;
     z-index: 100;
     border-radius: 30px;
+    
 }
 
 #poke-info-top{
-    background-color: green;
     position: relative;
     height: 45%;
     border-top-left-radius: 30px;
@@ -179,21 +179,20 @@ nav > img{
 .current-poke-type-sprite{
     padding: 15px;
     padding-top: 0;
-    z-index: 2;
 }
 
 .current-poke-type-sprite > img{
-    height: 150px;
+    height: 230px;
     object-fit: contain;
     position: absolute;
     z-index: 1000;
-    top: 70%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 #current-poke-name-id{
-    padding-top: 50px;
+    padding: 20px 60px 15px 15px;
 }
 
 #current-poke-types{
@@ -212,3 +211,80 @@ nav > img{
     color: white;
     cursor: pointer;
 }
+
+@media (max-width:450px) {
+    #poke-info-card{
+        width: 100%;
+        height: 100%;
+    }
+    #poke-info-top{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    #poke-info-bottom{
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+.pokeball-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 10px black;
+  }
+  
+  .pokeball-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    background-color: red;
+  }
+  
+  .pokeball-bottom {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom-left-radius: 50% 100%;
+    border-bottom-right-radius: 50% 100%;
+    background-color: white;
+  }
+  
+  .pokeball-x {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border-radius: 10px;
+  }
+  
+  .pokeball-center-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 40%;
+    border: 3px solid black;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+  }
