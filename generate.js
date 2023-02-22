@@ -32,8 +32,22 @@ function generatePokeInfoCard(i) {
     let name = document.querySelector(`#id-${id} > div > p`).innerHTML;
     let sprite = document.querySelector(`#id-${id} > .poke-type-sprite > img`).getAttribute('src');
     let types = document.querySelector(`#id-${id} > .poke-type-sprite > div`).querySelectorAll('p');
-    
+    generatePokeInfoCardTop(name, id, sprite, types); 
+    generatePokeInfoCardBottom();
+}
 
+function generatePokeInfoCardBottom() {
+    let cardBottom = document.getElementById('poke-info-bottom');
+    cardBottom.innerHTML =`
+        <div id='info-tabs'>
+            <span>Info</span>
+            <span>Evolution</span>
+            <span>Moves</span>
+        </div>
+    `;
+}
+
+function generatePokeInfoCardTop(name, id, sprite, types){
     let cardTop = document.getElementById('poke-info-top');
     cardTop.innerHTML=`
         <div class='poke-name-id' id='current-poke-name-id'>
@@ -46,7 +60,10 @@ function generatePokeInfoCard(i) {
             <img src='${sprite}'>
         </div>   
     `
-    // <button id='close-card' onclick='closeCard()'>X</button>
+    generatePokeCardInfoTopTypes(types, cardTop);
+}
+
+function generatePokeCardInfoTopTypes(types, cardTop) {
     let type1 = types[0].cloneNode(true);
     let currentTypes = document.getElementById('current-poke-types');
     currentTypes.appendChild(type1);
@@ -120,7 +137,6 @@ function getPokemonColor(type) {
         color = "#68A090"; // default color for unknown types
         break;
     }
-  
     return color;
 }
 

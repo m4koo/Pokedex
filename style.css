@@ -101,7 +101,6 @@ nav > img{
 .poke-name-id > p{
     text-transform: capitalize;
     text-shadow: 0 0 5px hsla(0, 0%, 0%, 10%);
-    
 }
 
 .poke-type-sprite{
@@ -155,7 +154,6 @@ nav > img{
     background-color: white;
     z-index: 100;
     border-radius: 30px;
-    
 }
 
 #poke-info-top{
@@ -163,17 +161,6 @@ nav > img{
     height: 45%;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-}
-
-#poke-info-bottom{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 60%;
-    z-index: 101;
-    border-radius: 30px;
-    background-color: black;
 }
 
 .current-poke-type-sprite{
@@ -203,6 +190,46 @@ nav > img{
     padding: 5px !important;
 }
 
+/* POKE INFO CARD BOTTOM */
+#poke-info-bottom{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60%;
+    z-index: 101;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(34,34,34,1) 0%, rgba(51,51,51,1) 35%, rgba(68,68,68,1) 100%);;
+}
+
+#info-tabs{
+    display: flex;
+    width: 100%;
+    font-family: monospace;
+    border-bottom: 1px solid black; /*vllt durch schatten ersetzen*/
+}
+
+#info-tabs > span{
+    width: 33.33%;
+    height: 50px;
+    display: grid;
+    place-items: center;
+}
+
+#info-tabs > span:hover{
+    cursor: pointer;
+    background-color: #444444;
+}
+
+#info-tabs > span:first-child:hover{
+    border-top-left-radius: 30px;
+}
+
+#info-tabs > span:last-child:hover{
+    border-top-right-radius: 30px;
+}
+
+/* MEDIA QUERRIES */
 @media (max-width:450px) {
     #poke-info-card{
         width: 100%;
@@ -219,6 +246,8 @@ nav > img{
 }
 
 
+
+/* POKEBALL BUTTON  */
 .pokeball-button {
     position: absolute;
     top: 10px;

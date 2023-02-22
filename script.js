@@ -60,12 +60,14 @@ function showPokeInfo(i) {
 function togglePokeInfoBox() {
   document.getElementById('poke-info-background').classList.remove('hidden');
   document.getElementById('poke-info-card').classList.remove('hidden');
+  document.body.style.overflow = 'hidden'
 }
 
 function closeCard() {
   document.getElementById('poke-info-background').classList.add('hidden');
   document.getElementById('poke-info-card').classList.add('hidden');
   document.getElementById('poke-info-top').innerHTML = '';
+  document.body.style.overflow = 'auto'
 }
 
 
