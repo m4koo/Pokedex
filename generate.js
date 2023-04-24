@@ -60,14 +60,15 @@ function generatePokeInfoCardTop(name, id, sprite, types){
         </div>
         <div class='current-poke-type-sprite' id='current-poke-info-type-sprite'>
             <div class='poke-type' id='current-poke-types'></div>
-            <button id='shiny_${id}'>S</button>
+            <button class='shinyBtn' id='shiny_${id}' onclick='changeBtn()'><img id="pic1" class ='shinyBtnImg' src='img/svg/shiny_active.png'><img id='pic2' src='img/svg/shiny_inactive.png'></button>
             <img src='${sprite}' id='infoImg${id}'>
         </div>   
         `
-      let shiny = document.querySelector(`#shiny_${id}`);
-      shiny.addEventListener("click", async () => {
-        let sprite = await getPokemonSprite(parseInt(id) - 1, 'shiny');
-        document.querySelector(`#infoImg${id}`).src=`${sprite}`;
+        
+    let shiny = document.querySelector(`#shiny_${id}`);
+    shiny.addEventListener("click", async () => {
+      let sprite = await getPokemonSprite(parseInt(id) - 1, 'shiny');
+      document.querySelector(`#infoImg${id}`).src=`${sprite}`;
     });
     generatePokeCardInfoTopTypes(types, cardTop);
 }

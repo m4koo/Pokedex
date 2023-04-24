@@ -7,7 +7,7 @@ async function fetchPokeUrl(urlPath){
 }
 
 async function getPokemons() {
-    let limit = `?limit=51` //limit 151 for gen 1
+    let limit = `?limit=251` //limit 151 for gen 1
     let pokemonList = await fetchPokeUrl(limit);
     return pokemonList;
 }
@@ -76,6 +76,21 @@ async function changeSprite(id){
   let sprite = await getPokemonSprite(id, shiny);
   console.log(sprite);
   // document.getElementById(`infoImg${id}`).src = `${sprite}`;
+}
+
+let status = 0;
+function changeBtn(){
+  let inactive = document.querySelector(`#pic2`);
+
+  if (status == 0) {
+    inactive.style.display = "none";
+    status = 1;
+    console.log('0')
+  }else{
+    inactive.style.display = "block";
+    status = 0;
+    console.log('1')
+  }
 }
 
 

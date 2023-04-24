@@ -322,3 +322,28 @@ nav > img{
     align-items: center;
     font-size: 10px;
 }
+
+.shinyBtn{
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.shinyBtn img{
+    width: 40px;
+    height: 40px;
+}
+
+.shinyBtn:hover{
+    transform: scale(1.1);
+}
+
+#pic1, #pic2{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
