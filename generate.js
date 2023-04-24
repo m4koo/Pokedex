@@ -40,9 +40,12 @@ function generatePokeInfoCardBottom() {
     let cardBottom = document.getElementById('poke-info-bottom');
     cardBottom.innerHTML =`
         <div id='info-tabs'>
-            <span>Info</span>
-            <span>Evolution</span>
-            <span>Moves</span>
+            <span id='info' onclick='openTab('info')>Info</span>
+            <span id='evo' onclick='openTab('evo')>Evolution</span>
+            <span id='moves' onclick='openTab('moves')>Moves</span>
+        </div>
+        <div id='selected-info'>
+            <canvas id='poke-chart'></canvas>
         </div>
     `;
 }
@@ -57,9 +60,15 @@ function generatePokeInfoCardTop(name, id, sprite, types){
         </div>
         <div class='current-poke-type-sprite' id='current-poke-info-type-sprite'>
             <div class='poke-type' id='current-poke-types'></div>
-            <img src='${sprite}'>
+            <button id='shiny_${id}'>S</button>
+            <img src='${sprite}' id='infoImg${id}'>
         </div>   
-    `
+        `
+      let shiny = document.querySelector(`#shiny_${id}`);
+      shiny.addEventListener("click", async () => {
+        let sprite = await getPokemonSprite(parseInt(id) - 1, 'shiny');
+        document.querySelector(`#infoImg${id}`).src=`${sprite}`;
+    });
     generatePokeCardInfoTopTypes(types, cardTop);
 }
 

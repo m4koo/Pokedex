@@ -12,9 +12,9 @@ async function getPokemons() {
     return pokemonList;
 }
 
-async function getPokemonSprite(i){
-    let sprite = await fetchPokeUrl(i + 1); 
-    return sprite['sprites']['other']['official-artwork']['front_default'];
+async function getPokemonSprite(i, spriteType){ //spriteType = default or shiny
+    let sprite = await fetchPokeUrl(i + 1);
+    return sprite['sprites']['other']['official-artwork'][`front_${spriteType}`];
 }
 
 async function getPokemonTypes(i) { //returns types array
@@ -29,7 +29,7 @@ async function showPokeCard() {
   let pokemon = list['results'];
     for (let i = 0; i < pokemon.length; i++) {
       const name = pokemon[i]['name'];
-      let sprite = await getPokemonSprite(i); 
+      let sprite = await getPokemonSprite(i, 'default'); 
       let types = await getPokemonTypes(i);
       generatePokemonCard(i, name, sprite, types);
   }
@@ -70,5 +70,12 @@ function closeCard() {
   document.body.style.overflow = 'auto'
 }
 
+
+async function changeSprite(id){
+  console.log(id)
+  let sprite = await getPokemonSprite(id, shiny);
+  console.log(sprite);
+  // document.getElementById(`infoImg${id}`).src = `${sprite}`;
+}
 
 

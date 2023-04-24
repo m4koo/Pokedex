@@ -199,7 +199,7 @@ nav > img{
     height: 60%;
     z-index: 101;
     border-radius: 30px;
-    background: linear-gradient(135deg, rgba(34,34,34,1) 0%, rgba(51,51,51,1) 35%, rgba(68,68,68,1) 100%);;
+    background: linear-gradient(135deg, rgba(34,34,34,1) 0%, rgba(51,51,51,1) 35%, rgba(68,68,68,1) 100%);
 }
 
 #info-tabs{
@@ -227,6 +227,13 @@ nav > img{
 
 #info-tabs > span:last-child:hover{
     border-top-right-radius: 30px;
+}
+
+#selected-info{
+    width: 100%;
+    height: calc(100% - 51px);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 /* MEDIA QUERRIES */
