@@ -71,21 +71,5 @@ function closeCard() {
 }
 
 
-async function changeSprite(id){
-  console.log(id)
-  let sprite = await getPokemonSprite(id, shiny);
-  console.log(sprite);
-  // document.getElementById(`infoImg${id}`).src = `${sprite}`;
-}
 
-
-// function changeBtn(){
-//   let inactive = document.querySelector(`#pic2`);
-
-//   if (inactive.classList.contains('hidden')) {
-//     inactive.classList.remove('hidden'); //activate shiny
-//   }else{
-//     inactive.classList.add('hidden');
-//   }
-// }
 
