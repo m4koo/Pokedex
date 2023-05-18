@@ -67,6 +67,9 @@ function generatePokeInfoCardTop(name, id, sprite, types){
         
     let shiny = document.querySelector(`#shiny_${id}`);
     shiny.addEventListener("click", async () => {
+      if (status) {
+        
+      }
       let sprite = await getPokemonSprite(parseInt(id) - 1, 'shiny');
       document.querySelector(`#infoImg${id}`).src=`${sprite}`;
     });

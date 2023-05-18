@@ -82,14 +82,10 @@ let status = 0;
 function changeBtn(){
   let inactive = document.querySelector(`#pic2`);
 
-  if (status == 0) {
-    inactive.style.display = "none";
-    status = 1;
-    console.log('0')
+  if (inactive.classList.contains('hidden')) {
+    inactive.classList.remove('hidden');
   }else{
-    inactive.style.display = "block";
-    status = 0;
-    console.log('1')
+    inactive.classList.add('hidden');
   }
 }
 
