@@ -7,7 +7,7 @@ async function fetchPokeUrl(urlPath){
 }
 
 async function getPokemons() {
-    let limit = `?limit=251` //limit 151 for gen 1
+    let limit = `?limit=51` //limit 151 for gen 1
     let pokemonList = await fetchPokeUrl(limit);
     return pokemonList;
 }
@@ -78,15 +78,14 @@ async function changeSprite(id){
   // document.getElementById(`infoImg${id}`).src = `${sprite}`;
 }
 
-let status = 0;
-function changeBtn(){
-  let inactive = document.querySelector(`#pic2`);
 
-  if (inactive.classList.contains('hidden')) {
-    inactive.classList.remove('hidden');
-  }else{
-    inactive.classList.add('hidden');
-  }
-}
+// function changeBtn(){
+//   let inactive = document.querySelector(`#pic2`);
 
+//   if (inactive.classList.contains('hidden')) {
+//     inactive.classList.remove('hidden'); //activate shiny
+//   }else{
+//     inactive.classList.add('hidden');
+//   }
+// }
 

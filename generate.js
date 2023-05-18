@@ -60,20 +60,31 @@ function generatePokeInfoCardTop(name, id, sprite, types){
         </div>
         <div class='current-poke-type-sprite' id='current-poke-info-type-sprite'>
             <div class='poke-type' id='current-poke-types'></div>
-            <button class='shinyBtn' id='shiny_${id}' onclick='changeBtn()'><img id="pic1" class ='shinyBtnImg' src='img/svg/shiny_active.png'><img id='pic2' src='img/svg/shiny_inactive.png'></button>
+            <button class='shinyBtn' id='shiny_${id}'><img id="pic1" class ='shinyBtnImg' src='img/svg/shiny_active.png'><img id='pic2' src='img/svg/shiny_inactive.png'></button>
             <img src='${sprite}' id='infoImg${id}'>
         </div>   
         `
-        
-    let shiny = document.querySelector(`#shiny_${id}`);
+
+    toggleSprite(id);
+    generatePokeCardInfoTopTypes(types, cardTop);
+}
+
+function toggleSprite(id) {
+  let shiny = document.querySelector(`#shiny_${id}`);
     shiny.addEventListener("click", async () => {
-      if (status) {
-        
+      let inactive = document.querySelector(`#pic2`);
+
+      if (inactive.classList.contains('hidden')) {
+        inactive.classList.remove('hidden'); //activate shiny
+        spriteType = 'default'
+      }else{
+        inactive.classList.add('hidden');
+        spriteType = 'shiny'
       }
-      let sprite = await getPokemonSprite(parseInt(id) - 1, 'shiny');
+
+      let sprite = await getPokemonSprite(parseInt(id) - 1, spriteType);
       document.querySelector(`#infoImg${id}`).src=`${sprite}`;
     });
-    generatePokeCardInfoTopTypes(types, cardTop);
 }
 
 function generatePokeCardInfoTopTypes(types, cardTop) {
