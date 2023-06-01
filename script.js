@@ -12,6 +12,11 @@ async function getPokemons() {
     return pokemonList;
 }
 
+async function getPokemon(name) {
+  let pokemon = await fetchPokeUrl('pokemon/' + name)
+  return pokemon;
+}
+
 async function getPokemonSprite(i, spriteType){ //spriteType = default or shiny
     let sprite = await fetchPokeUrl('pokemon/' + `${i + 1}`);
     return sprite['sprites']['other']['official-artwork'][`front_${spriteType}`];
@@ -27,6 +32,15 @@ async function getPokemonSpecies(name) {
   return species;
 }
 
+async function getAbilities(pokemon) {
+  let abilitiesArray = await pokemon.abilities;
+  let abilityNames ='';
+  console.log(abilitiesArray[0].ability.name);
+  for (let i = 0; i < abilitiesArray.length; i++) {
+    abilityNames += abilitiesArray[i].ability.name + ', '; 
+  }
+  return abilityNames.slice(0, -2);
+}
 
 //SECTION: pokemon cards on main page
 async function showPokeCard() {

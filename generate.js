@@ -41,7 +41,7 @@ function generatePokeInfoCardBottom(name) {
     cardBottom.innerHTML =`
         <div id='info-tabs'>
             <span id='info'>Info</span>
-            <span id='evo'>Evolution</span>
+            <span id='stats'>Stats</span>
             <span id='moves'>Moves</span>
         </div>
         <div id='selected-tab'></div>
@@ -101,15 +101,15 @@ function generatePokeCardInfoTopTypes(types, cardTop) {
 function addClickListeners(name) {
   const tab = document.getElementById('selected-tab')
   const infoSpan = document.getElementById('info');
-  const evolutionSpan = document.getElementById('evo');
+  const statsSpan = document.getElementById('stats');
   const movesSpan = document.getElementById('moves');
 
   infoSpan.addEventListener('click', async () => {
     await infoTab(tab, name);
   });
 
-  evolutionSpan.addEventListener('click', async () => {
-    await evolutionTab(tab);
+  statsSpan.addEventListener('click', async () => {
+    await statsTab(tab);
   });
 
   movesSpan.addEventListener('click', async () => {
@@ -121,14 +121,18 @@ function addClickListeners(name) {
 
 async function infoTab(tab, name) { //Note: async funcs do not work with onclick in HTML element
   let species = await getPokemonSpecies(name);
+  let pokemon = await getPokemon(name);
   let pokedexEntry = species.flavor_text_entries[0].flavor_text;
   tab.innerHTML=`
     <div id='pokedex-entry'>${pokedexEntry}</div>
+    <div id='height'>Height: ${pokemon.height}</div>
+    <div id='weight'>Weight: ${pokemon.weight}</div>
+    <div id='abilities'>Abilities: ${await getAbilities(pokemon)}</div>
   `;
 }
 
-function evolutionTab(tab) {
-  console.log('evo');
+function statsTab(tab) {
+  console.log('stats');
 
   tab.innerHTML=`
   

@@ -348,9 +348,18 @@ nav > img{
     top: 0;
 }
 
-#pokedex-entry{
-    margin: 20px;
+
+#selected-tab{
     color: #bbbbbb;
     font-size: 18px;
     font-family: monospace;
+    margin-left: 20px;
+}
+
+#selected-tab > *{
+    margin-bottom: 20px;
+}
+
+#pokedex-entry{
+    margin-top: 20px;
 }
