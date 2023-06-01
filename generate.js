@@ -33,21 +33,20 @@ function generatePokeInfoCard(i) {
     let sprite = document.querySelector(`#id-${id} > .poke-type-sprite > img`).getAttribute('src');
     let types = document.querySelector(`#id-${id} > .poke-type-sprite > div`).querySelectorAll('p');
     generatePokeInfoCardTop(name, id, sprite, types); 
-    generatePokeInfoCardBottom();
+    generatePokeInfoCardBottom(name);
 }
 
-function generatePokeInfoCardBottom() {
+function generatePokeInfoCardBottom(name) {
     let cardBottom = document.getElementById('poke-info-bottom');
     cardBottom.innerHTML =`
         <div id='info-tabs'>
-            <span id='info' onclick='openTab('info')>Info</span>
-            <span id='evo' onclick='openTab('evo')>Evolution</span>
-            <span id='moves' onclick='openTab('moves')>Moves</span>
+            <span id='info'>Info</span>
+            <span id='evo'>Evolution</span>
+            <span id='moves'>Moves</span>
         </div>
-        <div id='selected-info'>
-            <canvas id='poke-chart'></canvas>
-        </div>
+        <div id='selected-tab'></div>
     `;
+    addClickListeners(name);
 }
 
 function generatePokeInfoCardTop(name, id, sprite, types){
@@ -98,6 +97,70 @@ function generatePokeCardInfoTopTypes(types, cardTop) {
     }
     cardTop.style.backgroundColor = getPokemonColor(type1.innerHTML);
 }
+
+function addClickListeners(name) {
+  const tab = document.getElementById('selected-tab')
+  const infoSpan = document.getElementById('info');
+  const evolutionSpan = document.getElementById('evo');
+  const movesSpan = document.getElementById('moves');
+
+  infoSpan.addEventListener('click', async () => {
+    await infoTab(tab, name);
+  });
+
+  evolutionSpan.addEventListener('click', async () => {
+    await evolutionTab(tab);
+  });
+
+  movesSpan.addEventListener('click', async () => {
+    await movesTab(tab);
+  });
+
+  infoTab(tab, name);
+}
+
+async function infoTab(tab, name) { //Note: async funcs do not work with onclick in HTML element
+  let species = await getPokemonSpecies(name);
+  let pokedexEntry = species.flavor_text_entries[0].flavor_text;
+  tab.innerHTML=`
+    <div id='pokedex-entry'>${pokedexEntry}</div>
+  `;
+}
+
+function evolutionTab(tab) {
+  console.log('evo');
+
+  tab.innerHTML=`
+  
+  `;
+}
+
+function movesTab(tab) {
+  console.log('moves');
+
+  tab.innerHTML=`
+  
+  `
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function getPokemonColor(type) {
     let color;

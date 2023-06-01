@@ -347,3 +347,10 @@ nav > img{
     left: 0;
     top: 0;
 }
+
+#pokedex-entry{
+    margin: 20px;
+    color: #bbbbbb;
+    font-size: 18px;
+    font-family: monospace;
+}

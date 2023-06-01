@@ -1,6 +1,6 @@
 //GENERAL USAGE
 async function fetchPokeUrl(urlPath){
-    let url = `https://pokeapi.co/api/v2/pokemon/${urlPath}`
+    let url = `https://pokeapi.co/api/v2/${urlPath}`
     let response = await fetch(url);
     let responseAsJson = await response.json();
     return responseAsJson;
@@ -8,18 +8,23 @@ async function fetchPokeUrl(urlPath){
 
 async function getPokemons() {
     let limit = `?limit=51` //limit 151 for gen 1
-    let pokemonList = await fetchPokeUrl(limit);
+    let pokemonList = await fetchPokeUrl('pokemon' +  '/' + limit);
     return pokemonList;
 }
 
 async function getPokemonSprite(i, spriteType){ //spriteType = default or shiny
-    let sprite = await fetchPokeUrl(i + 1);
+    let sprite = await fetchPokeUrl('pokemon/' + `${i + 1}`);
     return sprite['sprites']['other']['official-artwork'][`front_${spriteType}`];
 }
 
 async function getPokemonTypes(i) { //returns types array
-  let types = await fetchPokeUrl(i+1);
+  let types = await fetchPokeUrl('pokemon/' + `${i + 1}`);
   return types['types'];
+}
+
+async function getPokemonSpecies(name) {
+  let species = await fetchPokeUrl('pokemon-species/' + name);
+  return species;
 }
 
 
