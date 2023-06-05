@@ -33,7 +33,7 @@ function updateProgress(value,highestStat, i) {
     let stat = Math.round(value/highestStat * 100);
     let statBar = document.getElementById(`stat-bar${i}`);
     statBar.style.width = stat + "%"; //255 highest stat available
-    statBarColor(stat, statBar);
+    statBarColor(value, statBar);
 }
 
 function statBarColor(value, bar) {

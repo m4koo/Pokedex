@@ -7,7 +7,7 @@ async function fetchPokeUrl(urlPath){
 }
 
 async function getPokemons() {
-    let limit = `?limit=255` //limit 151 for gen 1
+    let limit = `?limit=151` //limit 151 for gen 1
     let pokemonList = await fetchPokeUrl('pokemon' +  '/' + limit);
     return pokemonList;
 }
@@ -43,6 +43,7 @@ async function getAbilities(pokemon) {
 
 //SECTION: pokemon cards on main page
 let currentPageIndex = 1;
+let isLoading = false;
 
 async function showPokeCard() {
   let list = await getPokemons();
@@ -62,10 +63,12 @@ async function showPokeCard() {
 
 function lazyLoad() {
   // Überprüfe, ob das Ende der Seite erreicht wurde
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    // Erhöhe den Seitenindex, um die nächste Seite zu laden
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !isLoading) {
+    isLoading = true; // block loading to prevent the next set to start loading -> pokemon list will mix up
     currentPageIndex++;
-    showPokeCard();
+    showPokeCard().then(() => {
+      isLoading = false; // Setze den Ladezustand auf "false", um das Nachladen zu ermöglichen
+    });
   }
 }
 window.addEventListener('scroll', lazyLoad);
