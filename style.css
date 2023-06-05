@@ -353,13 +353,61 @@ nav > img{
     color: #bbbbbb;
     font-size: 18px;
     font-family: monospace;
-    margin-left: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 #selected-tab > *{
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #pokedex-entry{
-    margin-top: 20px;
+    margin-top: 15px;
+}
+
+#stats-container{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.chart-row{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.row-label{
+    width: 130px;
+}
+
+/* .red{
+    background-color: red;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.green{
+    background-color: green;
+} */
+
+.stat-bar-container {
+    width: 200px;
+    height: 15px;
+    background-color: transparent;
+    /* border: 1px solid gray; */
+}
+  
+.stat-bar {
+    height: 100%;
+    /* background-color: green; */
+    width: 0;
+    transition: width 0.5s ease;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.stat-number{
+    width: 35px;
 }

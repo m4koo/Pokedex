@@ -109,7 +109,7 @@ function addClickListeners(name) {
   });
 
   statsSpan.addEventListener('click', async () => {
-    await statsTab(tab);
+    await statsTab(tab, name);
   });
 
   movesSpan.addEventListener('click', async () => {
@@ -127,16 +127,17 @@ async function infoTab(tab, name) { //Note: async funcs do not work with onclick
     <div id='pokedex-entry'>${pokedexEntry}</div>
     <div id='height'>Height: ${pokemon.height}</div>
     <div id='weight'>Weight: ${pokemon.weight}</div>
-    <div id='abilities'>Abilities: ${await getAbilities(pokemon)}</div>
+    <div id='abilities'>Abilities: <span>${await getAbilities(pokemon)}</span></div>
   `;
 }
 
-function statsTab(tab) {
+async function statsTab(tab, name) {
   console.log('stats');
 
   tab.innerHTML=`
-  
+  <div id="stats-container"> </div>
   `;
+  await generateStatsChart(name);
 }
 
 function movesTab(tab) {
