@@ -72,7 +72,6 @@ function setBoxShadow(types, i) {
 //SECTION:  pokemon info box when clicking on pokemon card
 function showPokeInfo(i) {
   togglePokeInfoBox();
-
   generatePokeInfoCard(i)
 }
 
@@ -88,7 +87,3 @@ function closeCard() {
   document.getElementById('poke-info-top').innerHTML = '';
   document.body.style.overflow = 'auto'
 }
-
-
-
-

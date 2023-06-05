@@ -8,17 +8,21 @@ async function generateStatsChart(name) {
         let statNumber = stats[i].base_stat;
         let statName = stats[i].stat.name.replace(/special-/g, "SP. ")
         let formattedStatName = statName.charAt(0).toUpperCase() + statName.substring(1);
-        statsContainer.innerHTML+=`
-            <div class="chart-row">
-                <span class = "row-label">${formattedStatName}</span>
-                <p class="stat-number">${statNumber}</p>
-                <div class='stat-bar-container'>
-                    <div id='stat-bar${i}' class='stat-bar'
-                </div>
-            </div>
-        `
+        generateStatContainerHTML(statsContainer, formattedStatName, statNumber, i)
         updateProgress(statNumber, i)
     }
+}
+
+function generateStatContainerHTML(div, name, number, i) {
+    div.innerHTML+=`
+        <div class="chart-row">
+            <span class = "row-label">${name}</span>
+            <p class="stat-number">${number}</p>
+            <div class='stat-bar-container'>
+                <div id='stat-bar${i}' class='stat-bar'
+            </div>
+        </div>
+    `;
 }
 
 
