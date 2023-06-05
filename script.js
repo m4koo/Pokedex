@@ -7,7 +7,7 @@ async function fetchPokeUrl(urlPath){
 }
 
 async function getPokemons() {
-    let limit = `?limit=20` //limit 151 for gen 1
+    let limit = `?limit=151` //limit 151 for gen 1
     let pokemonList = await fetchPokeUrl('pokemon' +  '/' + limit);
     return pokemonList;
 }
@@ -43,16 +43,34 @@ async function getAbilities(pokemon) {
 }
 
 //SECTION: pokemon cards on main page
+let currentPageIndex = 1;
+
 async function showPokeCard() {
   let list = await getPokemons();
   let pokemon = list['results'];
-    for (let i = 0; i < pokemon.length; i++) {
-      const name = pokemon[i]['name'];
-      let sprite = await getPokemonSprite(i, 'default'); 
-      let types = await getPokemonTypes(i);
-      generatePokemonCard(i, name, sprite, types);
+
+  // Berechne den Start- und Endindex basierend auf der aktuellen Seite
+  const startIndex = (currentPageIndex - 1) * 20;
+  const endIndex = currentPageIndex * 20;
+
+  for (let i = startIndex; i < endIndex && i < pokemon.length; i++) {
+    const name = pokemon[i]['name'];
+    let sprite = await getPokemonSprite(i, 'default');
+    let types = await getPokemonTypes(i);
+    generatePokemonCard(i, name, sprite, types);
   }
 }
+
+function lazyLoad() {
+  // Überprüfe, ob das Ende der Seite erreicht wurde
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    // Erhöhe den Seitenindex, um die nächste Seite zu laden
+    currentPageIndex++;
+    showPokeCard();
+  }
+}
+window.addEventListener('scroll', lazyLoad);
+
 
 function pokeCardStyling(types, i) { //specific styling for the different types
   setPokeCardBackground(types, i);
@@ -87,3 +105,4 @@ function closeCard() {
   document.getElementById('poke-info-top').innerHTML = '';
   document.body.style.overflow = 'auto'
 }
+
