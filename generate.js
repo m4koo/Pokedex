@@ -124,7 +124,7 @@ async function infoTab(tab, name) { //Note: async funcs do not work with onclick
   let pokemon = await getPokemon(name);
   let pokedexEntry = species.flavor_text_entries[0].flavor_text;
   tab.innerHTML=`
-    <div id='pokedex-entry'>${pokedexEntry}</div>
+    <div id='pokedex-entry'>${pokedexEntry.replace(/\u000c/g, ' ')}</div>
     <div id='height'>Height: ${pokemon.height}</div>
     <div id='weight'>Weight: ${pokemon.weight}</div>
     <div id='abilities'>Abilities: <span>${await getAbilities(pokemon)}</span></div>
