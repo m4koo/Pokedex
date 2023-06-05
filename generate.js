@@ -93,7 +93,6 @@ function generatePokeCardInfoTopTypes(types, cardTop) {
     if (types[1]) {
         let type2 = types[1].cloneNode(true);
         currentTypes.appendChild(type2);
-        console.log(type2)
     }
     cardTop.style.backgroundColor = getPokemonColor(type1.innerHTML);
 }
@@ -122,7 +121,7 @@ function addClickListeners(name) {
 async function infoTab(tab, name) { //Note: async funcs do not work with onclick in HTML element
   let species = await getPokemonSpecies(name);
   let pokemon = await getPokemon(name);
-  let pokedexEntry = species.flavor_text_entries[0].flavor_text;
+  let pokedexEntry = pokedexEntryEnglish(species);
   tab.innerHTML=`
     <div id='pokedex-entry'>${pokedexEntry.replace(/\u000c/g, ' ')}</div>
     <div id='height'>Height: ${pokemon.height}</div>
@@ -131,9 +130,16 @@ async function infoTab(tab, name) { //Note: async funcs do not work with onclick
   `;
 }
 
-async function statsTab(tab, name) {
-  console.log('stats');
+function pokedexEntryEnglish(species) {
+  let dex = species.flavor_text_entries;
+  for (let i = 0; i < dex.length; i++) {
+    if (dex[i].language.name == 'en') {
+      return dex[i].flavor_text;
+    }
+  }
+}
 
+async function statsTab(tab, name) {
   tab.innerHTML=`
   <div id="stats-container"> </div>
   `;
@@ -141,8 +147,6 @@ async function statsTab(tab, name) {
 }
 
 function movesTab(tab) {
-  console.log('moves');
-
   tab.innerHTML=`
   
   `

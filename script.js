@@ -35,7 +35,6 @@ async function getPokemonSpecies(name) {
 async function getAbilities(pokemon) {
   let abilitiesArray = await pokemon.abilities;
   let abilityNames ='';
-  console.log(abilitiesArray[0].ability.name);
   for (let i = 0; i < abilitiesArray.length; i++) {
     abilityNames += abilitiesArray[i].ability.name + ', '; 
   }
