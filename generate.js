@@ -141,7 +141,7 @@ function pokedexEntryEnglish(species) {
 
 async function statsTab(tab, name) {
   tab.innerHTML=`
-  <div id="stats-container"> </div>
+  <div id="stats-container"></div>
   `;
   await generateStatsChart(name);
 }

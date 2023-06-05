@@ -7,7 +7,7 @@ async function fetchPokeUrl(urlPath){
 }
 
 async function getPokemons() {
-    let limit = `?limit=151` //limit 151 for gen 1
+    let limit = `?limit=255` //limit 151 for gen 1
     let pokemonList = await fetchPokeUrl('pokemon' +  '/' + limit);
     return pokemonList;
 }
