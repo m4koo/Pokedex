@@ -6,7 +6,8 @@ body{
     font-family: 'Press Start 2P', sans-serif;
     font-size: 16px;
     color: rgb(255, 255, 255);
-    background-color: black;
+    /* background-color: black; */
+    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
 }
 
 p{
@@ -22,8 +23,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: red;
-    /* max-width: 100%; */
+    background: radial-gradient(circle at 81.9% 53.5%, rgb(173, 53, 53) 16.3%, rgb(240, 60, 60) 100.2%);
     overflow: hidden;
 }
 
