@@ -346,6 +346,7 @@ nav > img{
     position: absolute;
     left: 0;
     top: 0;
+    cursor: pointer;
 }
 
 
@@ -374,23 +375,12 @@ nav > img{
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-bottom: 10px;
 }
 
 .row-label{
     width: 130px;
 }
-
-/* .red{
-    background-color: red;
-}
-
-.orange{
-    background-color: orange;
-}
-
-.green{
-    background-color: green;
-} */
 
 .stat-bar-container {
     width: 200px;

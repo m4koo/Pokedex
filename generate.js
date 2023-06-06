@@ -140,8 +140,11 @@ function pokedexEntryEnglish(species) {
 }
 
 async function statsTab(tab, name) {
+  let species = await getPokemonSpecies(name);
   tab.innerHTML=`
   <div id="stats-container"></div>
+  <div id="hapiness-stat">Base Happiness: ${species.base_happiness}</div>
+  <div id="capture-rate">Capture Rate: ${species.capture_rate}</div>
   `;
   await generateStatsChart(name);
 }
