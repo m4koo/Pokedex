@@ -22,9 +22,10 @@ nav{
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     background: radial-gradient(circle at 81.9% 53.5%, rgb(173, 53, 53) 16.3%, rgb(240, 60, 60) 100.2%);
     overflow: hidden;
+    position: relative;
 }
 
 nav > img{
@@ -34,7 +35,20 @@ nav > img{
 #search-container{
     display: flex;
     align-items: center;
+    margin-left: auto;
+    position: absolute;
+    right: 100px;
+    top: 0;
+    bottom: 0;
 }
+
+/* #search-icon{
+
+}
+
+#search-input{
+
+} */
 
 #main{
     display: flex;

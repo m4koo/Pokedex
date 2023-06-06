@@ -11,18 +11,20 @@
     <script src="script.js"></script>
     <script src="generate.js"></script>
     <script src="statsChart.js"></script>
+    <script src="search.js"></script>
     
     <title>PokéDex</title>
 </head>
-<body onload="showPokeCard()">
+<body onload="initializePage()">
     <nav>
         <img src="img/svg/pokedex.svg" alt="pokedex-header">
-        <!-- <div id="search-container">
+        <div id="search-container">
             <img src="img/svg/search.svg" alt="search-icon">
-            <input type="text" id="search">
-        </div> -->
+            <input type="text" id="search-input">
+        </div>
     </nav>
     <div id="main"></div>
+    </div>
     <div id="poke-info-background" class="hidden" onclick="closeCard()"></div>
     <div id="poke-info-card" class="hidden">
         <div id="poke-info-top"></div>

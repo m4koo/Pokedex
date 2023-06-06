@@ -55,6 +55,3 @@ function getHighestStat(stats) {
     }
     return highest;
 }
-
-//TODO:
-// zusätzlich für stat tab: base hapiness und capture rate

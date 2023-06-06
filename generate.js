@@ -159,7 +159,6 @@ async function movesTab(tab, name) {
 async function getAllMoves(name) {
   let pokemon = await getPokemon(name);
   let moveSet = pokemon.moves;
-  console.log(moveSet)
   let moveList = document.getElementById('all-moves');
   for (let i = 0; i < moveSet.length; i++) {
     moveList.innerHTML += `

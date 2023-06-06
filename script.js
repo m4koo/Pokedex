@@ -1,3 +1,8 @@
+function initializePage() {
+  showPokeCard(document.getElementById('main'));
+  searchLoad();
+}
+
 //GENERAL USAGE
 async function fetchPokeUrl(urlPath){
     let url = `https://pokeapi.co/api/v2/${urlPath}`
