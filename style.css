@@ -401,3 +401,20 @@ nav > img{
 .stat-number{
     width: 35px;
 }
+
+#all-moves{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    overflow-y: scroll;
+    max-height: 350px;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#all-moves > p{
+    font-size: 14px;
+    padding: 5px;
+    background-color: rgba(70,70,70,1);
+    border-radius: 50px;
+}

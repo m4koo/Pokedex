@@ -112,7 +112,7 @@ function addClickListeners(name) {
   });
 
   movesSpan.addEventListener('click', async () => {
-    await movesTab(tab);
+    await movesTab(tab, name);
   });
 
   infoTab(tab, name);
@@ -149,10 +149,23 @@ async function statsTab(tab, name) {
   await generateStatsChart(name);
 }
 
-function movesTab(tab) {
+async function movesTab(tab, name) {
   tab.innerHTML=`
-  
+    <div id='all-moves'></div>
   `
+  await getAllMoves(name);
+}
+
+async function getAllMoves(name) {
+  let pokemon = await getPokemon(name);
+  let moveSet = pokemon.moves;
+  console.log(moveSet)
+  let moveList = document.getElementById('all-moves');
+  for (let i = 0; i < moveSet.length; i++) {
+    moveList.innerHTML += `
+      <p>${moveSet[i].move.name}</p>
+    `
+  }
 }
 
 
