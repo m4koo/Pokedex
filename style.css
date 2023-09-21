@@ -78,7 +78,7 @@ nav > img{
         display: none;
     }
     #search-icon{
-        height: 35px;
+        height: 30px;
     }
     #search-container{
         border-radius: 50px;
@@ -412,6 +412,7 @@ nav > img{
     font-family: monospace;
     margin-left: 15px;
     margin-right: 15px;
+    height: 100%;
 }
 
 #selected-tab > *{
@@ -463,7 +464,7 @@ nav > img{
     flex-wrap: wrap;
     flex-direction: row;
     overflow-y: scroll;
-    max-height: 350px;
+    height: 80%;
     gap: 15px;
     margin-top: 15px;
 }
