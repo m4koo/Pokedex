@@ -67,8 +67,9 @@ async function showPokeCard() {
 }
 
 function lazyLoad() {
+  let searchInput = document.getElementById('search-input').value;
   // Überprüfe, ob das Ende der Seite erreicht wurde
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !isLoading) {
+  if (((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !isLoading) && (searchInput == '')) {
     isLoading = true; // block loading to prevent the next set to start loading -> pokemon list will mix up
     currentPageIndex++;
     showPokeCard().then(() => {
